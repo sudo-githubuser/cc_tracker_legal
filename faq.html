@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ — Cracker</title>
+<meta name="description" content="Frequently asked questions about Cracker: what it stores, whether anything is uploaded, statement passwords, backups, supported banks, and what happens if the phone is lost.">
+<meta name="theme-color" content="#EFF1F6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#080A0F" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sudo-githubuser.github.io/credit_card_tracker_app/faq.html">
+<meta property="og:site_name" content="Cracker">
+<meta property="og:title" content="FAQ — Cracker">
+<meta property="og:image" content="https://sudo-githubuser.github.io/credit_card_tracker_app/icon.png">
+
+<link rel="canonical" href="https://sudo-githubuser.github.io/credit_card_tracker_app/faq.html">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="stylesheet" href="styles.css">
+<script>
+    (function () {
+        try {
+            var t = localStorage.getItem('cracker-theme');
+            if (t === 'light' || t === 'dark') {
+                document.documentElement.setAttribute('data-theme', t);
+            }
+        } catch (e) { }
+    })();
+</script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img class="nav-mark" src="icon.png" alt="" width="28" height="28" decoding="async">
+                Cracker
+            </a>
+            <div class="nav-tools">
+                <button class="icon-btn" data-theme-toggle type="button" aria-label="Switch theme">☾</button>
+                <button class="icon-btn nav-toggle" data-nav-toggle type="button" aria-expanded="false"
+                    aria-controls="nav-links" aria-label="Menu">☰</button>
+            </div>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">About</a>
+                <a href="help.html">Help</a>
+                <a href="faq.html" class="active" aria-current="page">FAQ</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main" class="prose-wrap">
+        <header class="page-head">
+            <span class="eyebrow">Frequently asked questions</span>
+            <h1>FAQ</h1>
+            <p class="subtitle">
+                The questions that come up most, answered as plainly as they can be. Longer walkthroughs
+                are in <a href="help.html">Help</a>; the formal versions are in the
+                <a href="privacy.html">privacy policy</a> and the <a href="terms.html">terms</a>.
+            </p>
+        </header>
+
+        <div class="faq-tools">
+            <div class="search-field">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="M20 20l-3.5-3.5" stroke-linecap="round" />
+                </svg>
+                <label class="visually-hidden" for="faq-search">Search the FAQ</label>
+                <input type="search" id="faq-search"
+                    placeholder="Search — try &quot;backup&quot;, &quot;statement&quot;, &quot;points&quot;" autocomplete="off">
+            </div>
+            <button class="chip" type="button" data-faq-toggle-all>Expand all</button>
+        </div>
+        <p class="faq-count" id="faq-count" role="status" aria-live="polite"></p>
+
+        <div id="faq-list">
+
+            <!-- ================= Privacy and data ================= -->
+            <section class="faq-category" id="cat-privacy">
+                <h2 class="faq-category-title">Privacy and data</h2>
+
+                <details class="faq-item" id="q-leaves-phone" open>
+                    <summary>Does anything I enter leave my phone?</summary>
+                    <div class="faq-answer">
+                        <p>No. The release build has no internet permission at all, so the app cannot open a
+                        network connection even if it tried. There is no account, no sign-in, no server, no
+                        analytics, no advertising and no crash reporting. You can verify the permission yourself
+                        in <span class="mono">Settings → Apps → Cracker → Permissions</span>.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item" id="q-who-can-see">
+                    <summary>Who can see my transactions?</summary>
+                    <div class="faq-answer">
+                        <p>Whoever can unlock your phone and open the app — unless you turn on App lock, which
+                        puts a fingerprint in front of it. Nobody else: not the developer, not a hosting provider,
+                        not an analytics vendor. There is no copy anywhere.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item" id="q-dob-pan">
+                    <summary>Why does it ask for my date of birth and PAN?</summary>
+                    <div class="faq-answer">
+                        <p>Only to build the password on your bank's statement PDF, which is derived from exactly
+                        those details. They are stored in Keystore-backed secure storage rather than in the
+                        database, are masked when shown back to you, and the passwords built from them are never
+                        saved. If you never import a statement, you never need to enter them.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item" id="q-encrypted">
+                    <summary>Is my data encrypted?</summary>
+                    <div class="faq-answer">
+                        <p>Yes. The whole ledger is a SQLCipher-encrypted database whose 256-bit key is generated
+                        on your phone and held by the Android Keystore, so copying the file off the device yields
+                        nothing readable. Your identity details sit in separate Keystore-backed secure storage,
+                        and can be sealed under an additional key that the hardware will not release without your
+                        fingerprint.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item" id="q-sms">
+                    <summary>Does it read my SMS or my notifications?</summary>
+                    <div class="faq-answer">
+                        <p>The app declares no SMS permission of any kind, and the build fails if one ever
+                        appears. Automatic capture from bank alerts is not switched on for you and does nothing
+                        unless you grant it yourself in Android's own settings, where you can revoke it at any
+                        time. Even then it reads only an allow-list of bank packages, stores nothing of its own,
+                        and has no network to send anything to.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item" id="q-ads">
+                    <summary>Are there ads, or is my data sold?</summary>
+                    <div class="faq-answer">
+                        <p>No, and no. There is nothing to sell — no data ever reaches anyone who could sell it.</p>
+                    </div>
+                </details>
+            </section>
+
+            <!-- ================= Using the app ================= -->
+            <section class="faq-category" id="cat-using">
+                <h2 class="faq-category-title">Using the app</h2>
+
+                <details class="faq-item" id="q-banks">
+                    <summary>Which banks' statements can it import?</summary>
+                    <div class="faq-answer">
+                        <p>HDFC, Axis, ICICI, IndusInd, HSBC and Bank of Baroda. Every other card can still be
+                        tracked — transactions are logged by hand, and every figure in the app works the same way
+                        on hand-logged rows.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item" id="q-statement-unlock">
+                    <summary>My statement will not unlock. What now?</summary>
+                    <div class="faq-answer">
+                        <p>The usual cause is a mismatch between what you entered in
+                        <span class="mono">Settings → Your details</span> and what the bank actually holds — a
+                        middle name, a differently ordered date of birth. Correct it and try again, or type the
+                        password directly when the app asks. Only the rule that worked is remembered; the
+                        password never is.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item" id="q-duplicates">
+                    <summary>Will importing a statement duplicate rows I already logged by hand?</summary>
+                    <div class="faq-answer">
+                        <p>Duplicates are flagged and skipped, never merged — the row already in your ledger may
+                        carry a correction you made, and overwriting it with the bank's raw string would discard
+                        that work. Every flag is overridable in the review list, and re-importing the same file is
+                        refused outright.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item" id="q-undo-import">
+                    <summary>Can I undo an import?</summary>
+                    <div class="faq-answer">
+                        <p>Yes — a committed statement can be removed whole, taking every row it brought with it.
+                        And nothing is written at all until you have reviewed the staged rows and committed them.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item" id="q-no-point-value">
+                    <summary>Why does the app not show a rupee value for my points?</summary>
+                    <div class="faq-answer">
+                        <p>Because it has no evidence yet. That figure is blended from your own redemptions after
+                        fees and taxes, weighted by points. Log one redemption and it appears. The app will not
+                        substitute a published or assumed rate — the gap between the assumed rate and your real
+                        one is the entire point of the app.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item" id="q-limit-used">
+                    <summary>Why is my “limit used” different from what my bank's app shows?</summary>
+                    <div class="faq-answer">
+                        <p>Cracker measures against your last statement close, which is the balance a credit
+                        bureau actually sees. Your bank may be showing live outstanding including spend since
+                        that close.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item" id="q-multiple-people">
+                    <summary>Can I track more than one person's cards?</summary>
+                    <div class="faq-answer">
+                        <p>Yes. <span class="mono">Settings → People</span> lets you attach cards to different
+                        people in the same household. It is a grouping inside this one install — there is no
+                        login and no separate profile.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item" id="q-offline">
+                    <summary>Does it work without a SIM, in flight mode, or with no signal?</summary>
+                    <div class="faq-answer">
+                        <p>Identically. Nothing in the app has ever needed a connection.</p>
+                    </div>
+                </details>
+            </section>
+
+            <!-- ================= Keeping your data ================= -->
+            <section class="faq-category" id="cat-keeping">
+                <h2 class="faq-category-title">Keeping your data</h2>
+
+                <details class="faq-item" id="q-lost-phone">
+                    <summary>What happens if I lose my phone or uninstall the app?</summary>
+                    <div class="faq-answer">
+                        <p>The data is gone, unless you wrote a backup file yourself. Nothing is stored in a
+                        cloud, Android's own cloud backup is deliberately disabled for this app because it would
+                        defeat the encryption, and nobody holds a copy that could be sent to you. Write a backup
+                        from <span class="mono">Settings → Backup and restore</span> and keep it somewhere the
+                        phone is not.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item" id="q-forgot-passphrase">
+                    <summary>I forgot my backup passphrase. Can it be reset?</summary>
+                    <div class="faq-answer">
+                        <p>No. It is the key to the file; there is no recovery route, no reset link and no support
+                        channel that could bypass it. That is a consequence of the encryption being real, not an
+                        oversight.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item" id="q-csv-backup">
+                    <summary>Is the CSV export a backup?</summary>
+                    <div class="faq-answer">
+                        <p>No. It is a copy to <em>read</em> — unencrypted, and it cannot be restored into the
+                        app. The encrypted backup file is the copy to put back. Once a CSV leaves the app it is an
+                        ordinary file on your device, readable by anything you share it with.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item" id="q-delete-everything">
+                    <summary>How do I delete everything?</summary>
+                    <div class="faq-answer">
+                        <p><span class="mono">Settings → Erase everything</span>, confirmed by typing the word. It
+                        destroys the encryption key rather than deleting rows, and takes the write-ahead log, the
+                        identity vault and the biometric seal with it. Uninstalling the app removes it too. There
+                        is no account to close, because there was never one to open.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item" id="q-sealed-details">
+                    <summary>Why did my sealed details disappear after I added a fingerprint?</summary>
+                    <div class="faq-answer">
+                        <p>Enrolling a new fingerprint invalidates the hardware key that the seal depends on, and
+                        the sealed details go with it. That is intended: someone who adds their own finger to a
+                        found phone must not inherit access. Re-enter the details and seal them again.</p>
+                    </div>
+                </details>
+            </section>
+
+            <!-- ================= The app itself ================= -->
+            <section class="faq-category" id="cat-app">
+                <h2 class="faq-category-title">The app itself</h2>
+
+                <details class="faq-item" id="q-support">
+                    <summary>Is there a support desk or a grievance officer?</summary>
+                    <div class="faq-answer">
+                        <p>No grievance officer is appointed and there is no support desk. There is a contact
+                        address — <a href="mailto:praveen.dev.mys@gmail.com">praveen.dev.mys@gmail.com</a> — for questions about the app,
+                        though no reply is undertaken. It cannot reach your data: the app holds
+                        no data of yours anywhere off your device, so there is no account to investigate, no
+                        record to produce and nothing to retrieve. Everything that can be done about your data is
+                        done by you, in <span class="mono">Settings</span>.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item" id="q-advice">
+                    <summary>Is this financial advice?</summary>
+                    <div class="faq-answer">
+                        <p>No. Cracker arranges figures you entered and figures read from your own statements. It
+                        is not advice, not a recommendation to use or not use any card, and not a substitute for
+                        your bank's own statement — which remains the authoritative record of what you owe and
+                        what you earned. Verify anything before you act on it.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item" id="q-responsibility">
+                    <summary>Who is responsible if a number is wrong?</summary>
+                    <div class="faq-answer">
+                        <p>You are, for anything you do on the strength of it. The app and its creator accept no
+                        responsibility or liability of any kind — for the accuracy of a figure, for a missed
+                        payment, for a lapsed reward, for a fee that was not waived, or for data that is lost.
+                        This is set out in full in the <a href="terms.html">terms and conditions</a>.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item" id="q-animated-icon">
+                    <summary>Why is the launcher icon animated when the app starts?</summary>
+                    <div class="faq-answer">
+                        <p>The pieces of the icon assemble themselves while the encrypted database is being
+                        opened — that unlock is real work, and the introduction covers it rather than a spinner
+                        following it. It collapses to its final frame if your phone is set to reduce motion.</p>
+                    </div>
+                </details>
+            </section>
+        </div>
+
+        <div class="no-results" id="faq-empty" hidden>
+            <strong>Nothing matches that.</strong>
+            <p>Try a different word, or read <a href="help.html">Help</a> for the longer walkthroughs.</p>
+        </div>
+
+        <section class="section">
+            <span class="eyebrow">Read next</span>
+            <div class="link-grid">
+                <a href="help.html" class="link-card">
+                    <h3>Help</h3>
+                    <p>Getting started, importing a statement, backups, and what to do when something does not
+                        work.</p>
+                </a>
+                <a href="privacy.html" class="link-card">
+                    <h3>Privacy policy</h3>
+                    <p>What is collected, what is stored, and what leaves the device.</p>
+                </a>
+                <a href="terms.html" class="link-card">
+                    <h3>Terms &amp; conditions</h3>
+                    <p>The terms you accept by using the app.</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="nav-brand">
+                    <img class="nav-mark" src="icon.png" alt="" width="28" height="28" decoding="async">
+                    Cracker
+                </a>
+                <p>Cracker is provided as-is, with no warranty and no assumption of responsibility by the
+                app or its creator.</p>
+            </div>
+            <div>
+                <h4>The app</h4>
+                <ul>
+                    <li><a href="index.html">About</a></li>
+                    <li><a href="help.html">Help</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="mailto:praveen.dev.mys@gmail.com">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="last-updated">Cracker 1.0.0 · Last updated 6 September 2026</span>
+            <span>Works entirely offline. Nothing leaves the phone.</span>
+        </div>
+    </footer>
+
+    <button class="to-top" data-to-top type="button" aria-label="Back to top">↑</button>
+
+    <script src="site.js" defer></script>
+</body>
+
+</html>

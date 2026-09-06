@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help — Cracker</title>
+<meta name="description" content="How to use Cracker: adding a card, logging spend, importing a password-protected statement, reward rules, redemptions, reminders, backups, and troubleshooting.">
+<meta name="theme-color" content="#EFF1F6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#080A0F" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sudo-githubuser.github.io/credit_card_tracker_app/help.html">
+<meta property="og:site_name" content="Cracker">
+<meta property="og:title" content="Help — Cracker">
+<meta property="og:image" content="https://sudo-githubuser.github.io/credit_card_tracker_app/icon.png">
+
+<link rel="canonical" href="https://sudo-githubuser.github.io/credit_card_tracker_app/help.html">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="stylesheet" href="styles.css">
+<script>
+    (function () {
+        try {
+            var t = localStorage.getItem('cracker-theme');
+            if (t === 'light' || t === 'dark') {
+                document.documentElement.setAttribute('data-theme', t);
+            }
+        } catch (e) { }
+    })();
+</script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img class="nav-mark" src="icon.png" alt="" width="28" height="28" decoding="async">
+                Cracker
+            </a>
+            <div class="nav-tools">
+                <button class="icon-btn" data-theme-toggle type="button" aria-label="Switch theme">☾</button>
+                <button class="icon-btn nav-toggle" data-nav-toggle type="button" aria-expanded="false"
+                    aria-controls="nav-links" aria-label="Menu">☰</button>
+            </div>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">About</a>
+                <a href="help.html" class="active" aria-current="page">Help</a>
+                <a href="faq.html">FAQ</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main" class="prose-wrap doc">
+        <header class="page-head">
+            <span class="eyebrow">Using the app</span>
+            <h1>Help</h1>
+            <p class="subtitle">
+                Everything the app can do, in the order you are likely to need it. Nothing here requires a
+                connection, an account or a sign-in — every step happens on your phone.
+            </p>
+            <p class="last-updated">Cracker 1.0.0 · Last updated 6 September 2026</p>
+        </header>
+
+        <nav class="toc" aria-label="Contents">
+            <h2>Contents</h2>
+            <ol>
+                <li><a href="#s1">Finding your way around</a></li>
+                <li><a href="#s2">Getting started</a></li>
+                <li><a href="#s3">Importing a statement</a></li>
+                <li><a href="#s4">Reading the numbers</a></li>
+                <li><a href="#s5">Reminders</a></li>
+                <li><a href="#s6">Protecting it</a></li>
+                <li><a href="#s7">Backups, exports and erasure</a></li>
+                <li><a href="#s8">Housekeeping</a></li>
+                <li><a href="#s9">When something does not work</a></li>
+            </ol>
+        </nav>
+
+        <section class="section-block" id="s1">
+            <h2>Finding your way around</h2>
+            <h3>The four tabs and the button between them</h3>
+            <ul>
+                <li><strong>Home</strong> — the year so far, what is due next, and the card worth using right now. The header carries the theme switch, <strong>Settings</strong>, <strong>Activity</strong> (every transaction, searchable and filterable) and <strong>Import statement</strong>.</li>
+                <li><strong>Cards</strong> — one face per card, with its cycle, outstanding, limit used and reward rules. Add, edit, archive and restore cards here.</li>
+                <li><strong>Rewards</strong> — points by card and programme, what is about to expire, and the way through to <strong>Redemptions</strong>.</li>
+                <li><strong>Analysis</strong> — the six lenses, with a financial-year stepper at the top and a table view behind every chart.</li>
+                <li><strong>The + button</strong> — log a transaction, or import a statement.</li>
+            </ul>
+        </section>
+
+        <section class="section-block" id="s2">
+            <h2>Getting started</h2>
+            <ol class="steps">
+                <li>
+                    <strong>Read the four chapters, or skip them</strong>
+                    <p>The introduction on first run asks for nothing and can be left from the first frame.
+                    To read it again later: <span class="mono">Settings → Read the introduction again</span>.</p>
+                </li>
+                <li>
+                    <strong>Add your first card</strong>
+                    <p>Go to <strong>Cards → Add a card</strong>. Give it a name, the last four digits, the
+                    network and issuer, the credit limit, the statement close day and the payment due day.
+                    The close and due days are what drive the cycle view, the outstanding figure and the
+                    reminders, so they are worth getting right off a statement rather than from memory.</p>
+                </li>
+                <li>
+                    <strong>Describe how the card earns</strong>
+                    <p>On the card, open the rule editor. Set the base rate, then add accelerators for the
+                    categories the card pays extra on, any monthly cap on those accelerators, and any
+                    milestone thresholds. If the card charges an annual fee, enter it with its waiver
+                    condition — Cracker will forecast whether you are on track to clear it and what per day
+                    it now takes.</p>
+                </li>
+                <li>
+                    <strong>Put some spend in</strong>
+                    <p>Either log transactions by hand with the <strong>+</strong> button — the reward is
+                    worked out as you type — or import a statement PDF, which is far faster for a full month.</p>
+                </li>
+                <li>
+                    <strong>Log a redemption when you make one</strong>
+                    <p>This is the step most trackers skip and the one that makes the numbers honest. Points
+                    spent, rupees returned, fees and taxes paid. From then on the app values your balance at
+                    what your redemptions actually returned.</p>
+                </li>
+            </ol>
+        </section>
+
+        <section class="section-block" id="s3">
+            <h2>Importing a statement</h2>
+            <h3>Before you start</h3>
+            <p>
+                Fill in <span class="mono">Settings → Your details</span> — name, date of birth, and PAN
+                if your bank's password uses it. These are what the app builds statement passwords from.
+                They are stored in Keystore-backed secure storage, are never shown back to you in full,
+                and never leave the phone. Without them, a locked statement stays locked and you will
+                have to type the password yourself.
+            </p>
+
+            <ol class="steps">
+                <li>
+                    <strong>Pick the PDF</strong>
+                    <p>Home → <strong>Import statement</strong>, or the <strong>+</strong> button → Import a
+                    statement. Choose the file your bank emailed you. The file is hashed first: if that exact
+                    statement has been imported before, the app refuses rather than silently doubling every row.</p>
+                </li>
+                <li>
+                    <strong>It unlocks the file</strong>
+                    <p>The app tries, in order: the rule that worked for this bank last time, then passwords
+                    derived from your details and the card digits, then a password you type. The password
+                    itself is never stored — only which rule opened the file.</p>
+                </li>
+                <li>
+                    <strong>It reads and reconciles</strong>
+                    <p>The text is extracted with its coordinates and rebuilt into columns, the issuer is
+                    detected from the content (you can override it), and the parsed rows are checked against
+                    the totals the bank printed on the statement. Where the statement prints what a
+                    transaction earned, that figure is used as-is and the reward engine is not consulted at all.</p>
+                </li>
+                <li>
+                    <strong>You review before anything is saved</strong>
+                    <p>Every row arrives staged, with a category and a confidence, and duplicates flagged
+                    rather than merged. Fix a category, clear a flag, drop a row. <strong>Nothing touches the
+                    ledger until you commit.</strong></p>
+                </li>
+                <li>
+                    <strong>Undo is whole-statement</strong>
+                    <p>If a commit turns out wrong, remove that statement and every row it brought with it in
+                    one action.</p>
+                </li>
+            </ol>
+
+            <div class="callout callout-info">
+                <p><strong>Supported issuers:</strong> HDFC, Axis, ICICI, IndusInd, HSBC and Bank of Baroda.
+                A statement from another bank, or a scanned statement with no text layer in it, cannot be
+                parsed — the app says so plainly rather than guessing, and those transactions can be
+                logged by hand.</p>
+            </div>
+        </section>
+
+        <section class="section-block" id="s4">
+            <h2>Reading the numbers</h2>
+
+            <h4>Realized value per point</h4>
+            <p>
+                Blended from your own redemptions, weighted by points, after booking fees and taxes. It
+                appears once you have logged at least one redemption for that programme. Until then the
+                app will not put a rupee value on a balance it has no evidence for.
+            </p>
+
+            <h4>Expiry runway</h4>
+            <p>
+                Points retire oldest-first, so the runway is the date the oldest surviving lot lapses.
+                Points that have already lapsed are shown as a loss, not folded into the balance.
+            </p>
+
+            <h4>Money left on the table</h4>
+            <p>
+                What you earned against what the best card <em>you already own</em> would have paid on the
+                same spend. It is not a comparison against cards you do not have.
+            </p>
+
+            <h4>Limit used</h4>
+            <p>
+                Measured against the last statement close, because that is the balance a credit bureau
+                actually sees — not financial-year-to-date spend, which would climb all year.
+            </p>
+
+            <h4>Interest-free run</h4>
+            <p>
+                In the Cycles lens: how long a purchase made <em>today</em> would go before it must be
+                paid. Putting a large spend on the card that just closed its cycle is worth weeks of
+                float, which no reward rate competes with.
+            </p>
+        </section>
+
+        <section class="section-block" id="s5">
+            <h2>Reminders</h2>
+            <h3>Payment due reminders</h3>
+            <p>
+                <span class="mono">Settings → Reminders</span>. Off by default. Choose how many days
+                before the due date the first reminder lands and whether a second one follows. Android
+                will ask for notification permission at the moment you switch this on, never at launch.
+            </p>
+            <p>
+                Reminders are scheduled, fired and cancelled entirely on the phone — a local notification
+                needs no network. They are deliberately not exact alarms: a reminder that arrives within
+                an hour of its slot is doing its job. If reminders stop arriving after a reboot or a
+                battery-optimisation change, open the app once and switch them off and on again to
+                reschedule.
+            </p>
+        </section>
+
+        <section class="section-block" id="s6">
+            <h2>Protecting it</h2>
+            <h3>Two locks, both optional, both off by default</h3>
+
+            <h4>App lock</h4>
+            <p>
+                <span class="mono">Settings → App lock</span> puts your fingerprint in front of the whole
+                app. This is the one that matters if someone is holding your phone already unlocked —
+                without it, they can read every transaction, card and limit in here.
+            </p>
+
+            <h4>Identity seal</h4>
+            <p>
+                <span class="mono">Settings → Seal these details</span> encrypts your date of birth, PAN
+                and card digits under a separate key that the hardware will not release without a
+                fingerprint. The prompt then appears only where those details are genuinely needed:
+                opening the details screen, or deriving a statement password.
+            </p>
+            <p><strong>Enrolling a new fingerprint on the phone destroys that key and the sealed
+            details with it.</strong> That is intended, not a bug — someone who adds their own finger
+            to a found phone must not inherit access. You would re-enter the details once and seal
+            them again.</p>
+        </section>
+
+        <section class="section-block" id="s7">
+            <h2>Backups, exports and erasure</h2>
+
+            <h3>Backup and restore — the copy you can put back</h3>
+            <p>
+                <span class="mono">Settings → Backup and restore</span> writes one encrypted file,
+                openable only with a passphrase you choose, to a location you pick. It is the only route
+                back from a lost or reset phone. Restore reads that file into a fresh install.
+            </p>
+            <p>
+                <strong>Nobody else holds this file and nobody can reset its passphrase.</strong> Store
+                both somewhere you will still have them when the phone is gone.
+            </p>
+
+            <h3>Export a copy — the copy you can read</h3>
+            <p>
+                <span class="mono">Settings → Export a copy</span> writes every transaction as a CSV for a
+                spreadsheet. It is deliberately <em>not</em> a backup: it is unencrypted and cannot be
+                restored. Once that file is out of the app it is an ordinary file on your device, subject
+                to whatever else can read it — including anything you share it with.
+            </p>
+
+            <h3>Erase everything</h3>
+            <p>
+                <span class="mono">Settings → Erase everything</span>. The database key is destroyed, not
+                just the rows: deleted rows linger in free pages until something overwrites them, while a
+                destroyed key makes the whole file unreadable at once, to a forensic tool as much as to
+                this app. The database files, the write-ahead log, the identity vault and the biometric
+                seal all go with it. You confirm by typing the word — it is the one action in the app
+                with no undo, and no copy of your data exists anywhere else.
+            </p>
+        </section>
+
+        <section class="section-block" id="s8">
+            <h2>Housekeeping</h2>
+            <ul>
+                <li><strong>Categories</strong> — rename, recolour, add your own. Category drives the reward rules and the waiver forecast, so it is worth having the right ones.</li>
+                <li><strong>People</strong> — cards can belong to different people in the same household. It is a grouping inside this install; there is no login and no server behind it.</li>
+                <li><strong>Archived cards</strong> — a closed card keeps its history, stops cluttering the tabs, and can be brought back.</li>
+                <li><strong>Theme</strong> — light, dark, or whatever the phone is doing.</li>
+            </ul>
+        </section>
+
+        <section class="section-block" id="s9">
+            <h2>When something does not work</h2>
+
+            <h4>“Could not open the database”</h4>
+            <p>
+                The app could not get its key back from the Android Keystore. This can follow a device
+                restore from another phone, or a system-level change to the secure hardware. The app
+                stops rather than quietly writing your data unencrypted. If it persists, the route
+                forward is a fresh install and a restore from your backup file.
+            </p>
+
+            <h4>The statement will not open</h4>
+            <p>
+                Check that <span class="mono">Settings → Your details</span> exactly matches what the bank
+                holds — a middle name the bank does not have, or a differently formatted date of birth, is
+                usually the cause. Failing that, type the password the bank told you to use; the app will
+                remember which rule worked, not the password.
+            </p>
+
+            <h4>The statement opens but nothing is found</h4>
+            <p>
+                Statements that are scans carry no text layer, and there is nothing to parse. Check the
+                detected issuer at the top of the review screen and override it if it is wrong.
+            </p>
+
+            <h4>A figure looks wrong</h4>
+            <p>
+                Open Activity and check the underlying rows first — a mistyped category is the usual
+                cause, because a row typed as a fee earns no points and counts towards no waiver
+                threshold. Category and amount are editable on every transaction.
+            </p>
+
+            <h4>Reminders are not arriving</h4>
+            <p>
+                Confirm notification permission is granted for Cracker in Android settings, then toggle
+                reminders off and on in the app to reschedule.
+            </p>
+
+            <div class="callout">
+                <p>Cracker has no support desk, no grievance officer and no channel through which your
+                data could be recovered, restored or investigated — there is nowhere for it to have been
+                sent. Questions can go to <a href="mailto:praveen.dev.mys@gmail.com">praveen.dev.mys@gmail.com</a>, but nothing sent
+                there can reach what is on your phone. Everything above is the whole of what can be done, and all of it is done by you, on
+                your device. See the <a href="terms.html">terms</a>.</p>
+            </div>
+        </section>
+
+        <div class="link-grid">
+            <a href="faq.html" class="link-card">
+                <h3>FAQ</h3>
+                <p>The questions that come up most, answered plainly.</p>
+            </a>
+            <a href="privacy.html" class="link-card">
+                <h3>Privacy policy</h3>
+                <p>What is collected, what is stored, and what leaves the device.</p>
+            </a>
+            <a href="terms.html" class="link-card">
+                <h3>Terms &amp; conditions</h3>
+                <p>The terms you accept by using the app.</p>
+            </a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="nav-brand">
+                    <img class="nav-mark" src="icon.png" alt="" width="28" height="28" decoding="async">
+                    Cracker
+                </a>
+                <p>Cracker is provided as-is, with no warranty and no assumption of responsibility by the
+                app or its creator.</p>
+            </div>
+            <div>
+                <h4>The app</h4>
+                <ul>
+                    <li><a href="index.html">About</a></li>
+                    <li><a href="help.html">Help</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="mailto:praveen.dev.mys@gmail.com">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="last-updated">Cracker 1.0.0 · Last updated 6 September 2026</span>
+            <span>Works entirely offline. Nothing leaves the phone.</span>
+        </div>
+    </footer>
+
+    <button class="to-top" data-to-top type="button" aria-label="Back to top">↑</button>
+
+    <script src="site.js" defer></script>
+</body>
+
+</html>

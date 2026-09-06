@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy — Cracker</title>
+<meta name="description" content="Cracker's privacy policy: no data collection, no network permission, everything encrypted on the device, and no third parties of any kind.">
+<meta name="theme-color" content="#EFF1F6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#080A0F" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sudo-githubuser.github.io/credit_card_tracker_app/privacy.html">
+<meta property="og:site_name" content="Cracker">
+<meta property="og:title" content="Privacy policy — Cracker">
+<meta property="og:image" content="https://sudo-githubuser.github.io/credit_card_tracker_app/icon.png">
+
+<link rel="canonical" href="https://sudo-githubuser.github.io/credit_card_tracker_app/privacy.html">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="stylesheet" href="styles.css">
+<script>
+    (function () {
+        try {
+            var t = localStorage.getItem('cracker-theme');
+            if (t === 'light' || t === 'dark') {
+                document.documentElement.setAttribute('data-theme', t);
+            }
+        } catch (e) { }
+    })();
+</script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img class="nav-mark" src="icon.png" alt="" width="28" height="28" decoding="async">
+                Cracker
+            </a>
+            <div class="nav-tools">
+                <button class="icon-btn" data-theme-toggle type="button" aria-label="Switch theme">☾</button>
+                <button class="icon-btn nav-toggle" data-nav-toggle type="button" aria-expanded="false"
+                    aria-controls="nav-links" aria-label="Menu">☰</button>
+            </div>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">About</a>
+                <a href="help.html">Help</a>
+                <a href="faq.html">FAQ</a>
+                <a href="privacy.html" class="active" aria-current="page">Privacy</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main" class="prose-wrap doc">
+        <header class="page-head">
+            <span class="eyebrow">Legal</span>
+            <h1>Privacy policy</h1>
+            <p class="subtitle">
+                This policy explains what Cracker (“the app”) does with your information. The short version:
+                it collects nothing, transmits nothing, and cannot — the release build has no network
+                permission. Everything below is a description of a design, not a promise about a practice.
+            </p>
+            <p class="last-updated">Version 1.0.0 · Effective 6 September 2026</p>
+        </header>
+
+        <div class="callout callout-good">
+            <p><strong>No personal data is collected, transmitted, sold, shared or processed by the
+            app's creator or by any third party.</strong> There is no account, no sign-in, no server,
+            no analytics, no advertising, no crash reporting and no third-party tracking of any kind.</p>
+        </div>
+
+        <nav class="toc" aria-label="Contents">
+            <h2>Contents</h2>
+            <ol>
+                <li><a href="#s1">Who this applies to</a></li>
+                <li><a href="#s2">What the app stores, and where</a></li>
+                <li><a href="#s3">What the app sends</a></li>
+                <li><a href="#s4">Permissions the app requests</a></li>
+                <li><a href="#s5">Third parties</a></li>
+                <li><a href="#s6">Children</a></li>
+                <li><a href="#s7">Your control over your data</a></li>
+                <li><a href="#s8">Security, and its limits</a></li>
+                <li><a href="#s9">No grievance officer, no responsibility assumed</a></li>
+                <li><a href="#s10">Changes to this policy</a></li>
+            </ol>
+        </nav>
+
+        <section class="section-block" id="s1">
+            <h2>1 · Who this applies to</h2>
+            <p>
+                This policy covers the Cracker Android application. The app is offered as-is by an
+                individual developer. There is no company, no service and no backend behind it. Using the
+                app means you accept this policy and the <a href="terms.html">terms and conditions</a>.
+            </p>
+        </section>
+
+        <section class="section-block" id="s2">
+            <h2>2 · What the app stores, and where</h2>
+            <p>
+                Everything you enter or import is stored <strong>only in the app's private storage on your
+                device</strong>. Nothing is uploaded, backed up to a cloud, or copied anywhere else.
+            </p>
+            <div class="table-card">
+                <table>
+                    <thead>
+                        <tr><th>What</th><th>Where it is kept</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cards, transactions, rewards, redemptions, categories, people, settings</td>
+                            <td>A SQLCipher-encrypted database in the app's private storage. The 256-bit key is generated on your device and held by the Android Keystore.</td>
+                        </tr>
+                        <tr>
+                            <td>Your name, date of birth, PAN and card digits</td>
+                            <td>Keystore-backed secure storage (AES-GCM), not in the database. Optionally sealed under a second key that the hardware releases only on a fingerprint.</td>
+                        </tr>
+                        <tr>
+                            <td>Imported statement PDFs</td>
+                            <td>Read from wherever you picked them and parsed on the device. The app keeps the extracted transactions and a hash of the file to detect a re-import — not the PDF.</td>
+                        </tr>
+                        <tr>
+                            <td>Statement passwords</td>
+                            <td>Never stored. Only the identifier of the rule that opened a file is kept, so the password can be rebuilt next month.</td>
+                        </tr>
+                        <tr>
+                            <td>Backup files and CSV exports</td>
+                            <td>Written to a location <em>you</em> choose, on your device or wherever you send them. Once written they are outside the app's control.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section-block" id="s3">
+            <h2>3 · What the app sends</h2>
+            <h3>Nothing, and it cannot</h3>
+            <p>
+                The release build of the app declares <strong>no <span class="mono">INTERNET</span>
+                permission</strong>. Android enforces this at the operating-system level: the process
+                cannot open a network socket. It is not a setting inside the app, and it is not something
+                the developer asks you to take on trust — you can read it on your own phone under
+                <span class="mono">Settings → Apps → Cracker → Permissions</span>, where no network entry
+                appears. An automated check fails the build if the permission, or any SMS, location,
+                contacts or call-log permission, is ever reintroduced by the app or by one of its
+                dependencies.
+            </p>
+            <p>
+                Android's own cloud backup is disabled for this app
+                (<span class="mono">allowBackup="false"</span>), because backing the database up off the
+                device would defeat its encryption.
+            </p>
+        </section>
+
+        <section class="section-block" id="s4">
+            <h2>4 · Permissions the app requests</h2>
+            <div class="table-card">
+                <table>
+                    <thead>
+                        <tr><th>Permission</th><th>Why, and when</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>USE_BIOMETRIC</td><td>To show the fingerprint prompt for App lock and the identity seal. It grants access to nothing except the prompt itself, and the app works without a fingerprint sensor.</td></tr>
+                        <tr><td>POST_NOTIFICATIONS</td><td>Requested only at the moment you switch payment reminders on. Never at launch. Reminders are scheduled and fired entirely on the device.</td></tr>
+                        <tr><td>RECEIVE_BOOT_COMPLETED</td><td>So reminders you have already scheduled survive a restart instead of silently disappearing.</td></tr>
+                        <tr><td>Notification access <span class="mono">(optional)</span></td><td>Not requested by the app and off unless you grant it yourself in Android's settings, where you can revoke it at any time. When on, it reads bank alert notifications from an allow-list of bank apps to suggest transactions. It stores nothing of its own and has no network to send anything to.</td></tr>
+                        <tr><td>File access</td><td>Through Android's own file picker, one file at a time, when you import a statement or write a backup or export. The app receives only the file you choose.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                The app requests no SMS, location, contacts, call-log, camera, microphone or advertising
+                identifier permission, and holds no device identifier of any kind.
+            </p>
+        </section>
+
+        <section class="section-block" id="s5">
+            <h2>5 · Third parties</h2>
+            <p>
+                There are none. No analytics provider, no advertising network, no crash reporter, no cloud
+                storage provider, no payment processor and no bank integration. The app never contacts your
+                bank; it reads the statement file you hand it. Open-source components bundled inside the app
+                (for storage, encryption, PDF reading, notifications and fonts) run entirely on your device
+                and transmit nothing.
+            </p>
+        </section>
+
+        <section class="section-block" id="s6">
+            <h2>6 · Children</h2>
+            <p>
+                The app is intended for adults managing their own credit cards. It collects no information
+                from anyone, of any age, so it cannot knowingly collect information from a child.
+            </p>
+        </section>
+
+        <section class="section-block" id="s7">
+            <h2>7 · Your control over your data</h2>
+            <p>
+                Because your data never leaves your device, every right you might want to exercise over it
+                is exercised directly in the app rather than by making a request to anyone:
+            </p>
+            <ul>
+                <li><strong>Access and portability</strong> — <span class="mono">Settings → Export a copy</span> writes every transaction as a CSV.</li>
+                <li><strong>Correction</strong> — every card, transaction, category and person is editable.</li>
+                <li><strong>Erasure</strong> — <span class="mono">Settings → Erase everything</span> destroys the encryption key, the database files including the write-ahead log, the identity vault and the biometric seal. Uninstalling the app removes its data too.</li>
+                <li><strong>Withdrawing a permission</strong> — revoke notifications or notification access in Android settings at any time; the app degrades gracefully.</li>
+            </ul>
+            <p>
+                There is no account to close and no request to file, because there is no recipient of your
+                data to file it with.
+            </p>
+        </section>
+
+        <section class="section-block" id="s8">
+            <h2>8 · Security, and its limits</h2>
+            <p>
+                The ledger is encrypted at rest, the identity fields are held in hardware-backed storage,
+                and both can be put behind your fingerprint. What that protects against is someone who
+                obtains the <em>storage</em> — a stolen phone image, a device backup, a file copied off.
+            </p>
+            <p>
+                It does not protect against: a phone someone else can already unlock while App lock is off,
+                a compromised or rooted device, files you export or share yourself, or screenshots. No
+                security measure is absolute, and none is warranted here.
+            </p>
+        </section>
+
+        <section class="section-block" id="s9">
+            <h2>9 · No grievance officer, no responsibility assumed</h2>
+            <div class="callout callout-crit">
+                <p>
+                    <strong>No grievance officer or data protection officer is appointed, and no support
+                    desk is operated.</strong> Questions about this policy or the app can be sent to
+                    <a href="mailto:praveen.dev.mys@gmail.com">praveen.dev.mys@gmail.com</a>, which is a contact address rather than a
+                    support channel and carries no undertaking to reply. It cannot reach your data either
+                    way: the app processes no personal data outside your
+                    own device, holds no records about you, and has no ability to access, retrieve, restore,
+                    correct or investigate anything on your phone.
+                </p>
+                <p>
+                    <strong>The app and its creator accept no responsibility or liability whatsoever</strong>
+                    in connection with your use of the app or with any data held in it — including its loss,
+                    corruption, disclosure or inaccuracy, and including any financial consequence of relying
+                    on it. The app is provided as-is, without warranty of any kind. Your data is yours, on
+                    your device, and keeping it — and keeping a backup of it — is entirely your
+                    responsibility. See the <a href="terms.html">terms and conditions</a>.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-block" id="s10">
+            <h2>10 · Changes to this policy</h2>
+            <p>
+                If this policy changes, the updated version ships with a new version of the app and carries
+                a new date. Since there is no way for the app to contact you, checking this page or the
+                copy inside the app under <span class="mono">Settings → Privacy policy</span> is the only
+                notice there will be. Continuing to use the app after a change means you accept it.
+            </p>
+        </section>
+
+        <div class="link-grid">
+            <a href="terms.html" class="link-card">
+                <h3>Terms &amp; conditions</h3>
+                <p>The terms you accept by using the app.</p>
+            </a>
+            <a href="faq.html" class="link-card">
+                <h3>FAQ</h3>
+                <p>The questions that come up most, answered plainly.</p>
+            </a>
+            <a href="help.html" class="link-card">
+                <h3>Help</h3>
+                <p>Getting started, importing a statement, backups, and what to do when something does not
+                    work.</p>
+            </a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="nav-brand">
+                    <img class="nav-mark" src="icon.png" alt="" width="28" height="28" decoding="async">
+                    Cracker
+                </a>
+                <p>Bank and card-network names are the marks of their respective owners and are used only to
+                identify statement formats.</p>
+            </div>
+            <div>
+                <h4>The app</h4>
+                <ul>
+                    <li><a href="index.html">About</a></li>
+                    <li><a href="help.html">Help</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="mailto:praveen.dev.mys@gmail.com">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="last-updated">Cracker 1.0.0 · Effective 6 September 2026</span>
+            <span>Works entirely offline. Nothing leaves the phone.</span>
+        </div>
+    </footer>
+
+    <button class="to-top" data-to-top type="button" aria-label="Back to top">↑</button>
+
+    <script src="site.js" defer></script>
+</body>
+
+</html>
