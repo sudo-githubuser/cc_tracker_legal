@@ -165,7 +165,6 @@
                         <tr><td>USE_BIOMETRIC</td><td>To show the fingerprint prompt for App lock and the identity seal. It grants access to nothing except the prompt itself, and the app works without a fingerprint sensor.</td></tr>
                         <tr><td>POST_NOTIFICATIONS</td><td>Requested only at the moment you switch payment reminders on. Never at launch. Reminders are scheduled and fired entirely on the device.</td></tr>
                         <tr><td>RECEIVE_BOOT_COMPLETED</td><td>So reminders you have already scheduled survive a restart instead of silently disappearing.</td></tr>
-                        <tr><td>Notification access <span class="mono">(optional)</span></td><td>Not requested by the app and off unless you grant it yourself in Android's settings, where you can revoke it at any time. When on, it reads bank alert notifications from an allow-list of bank apps to suggest transactions. It stores nothing of its own and has no network to send anything to.</td></tr>
                         <tr><td>File access</td><td>Through Android's own file picker, one file at a time, when you import a statement or write a backup or export. The app receives only the file you choose.</td></tr>
                     </tbody>
                 </table>
@@ -205,7 +204,7 @@
                 <li><strong>Access and portability</strong> — <span class="mono">Settings → Export a copy</span> writes every transaction as a CSV.</li>
                 <li><strong>Correction</strong> — every card, transaction, category and person is editable.</li>
                 <li><strong>Erasure</strong> — <span class="mono">Settings → Erase everything</span> destroys the encryption key, the database files including the write-ahead log, the identity vault and the biometric seal. Uninstalling the app removes its data too.</li>
-                <li><strong>Withdrawing a permission</strong> — revoke notifications or notification access in Android settings at any time; the app degrades gracefully.</li>
+                <li><strong>Withdrawing a permission</strong> — revoke notifications in Android settings at any time; the app degrades gracefully.</li>
             </ul>
             <p>
                 There is no account to close and no request to file, because there is no recipient of your

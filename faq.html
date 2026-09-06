@@ -128,11 +128,10 @@
                 <details class="faq-item" id="q-sms">
                     <summary>Does it read my SMS or my notifications?</summary>
                     <div class="faq-answer">
-                        <p>The app declares no SMS permission of any kind, and the build fails if one ever
-                        appears. Automatic capture from bank alerts is not switched on for you and does nothing
-                        unless you grant it yourself in Android's own settings, where you can revoke it at any
-                        time. Even then it reads only an allow-list of bank packages, stores nothing of its own,
-                        and has no network to send anything to.</p>
+                        <p>No, neither. The app declares no SMS permission of any kind and the build fails
+                        if one ever appears. It reads no notifications either: there is no notification
+                        listener in it, and the same build check fails if one is ever added. Spend is entered
+                        by you or read from a statement you hand it, and nothing else.</p>
                     </div>
                 </details>
 
