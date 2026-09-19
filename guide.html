@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to use — Cracker</title>
+<meta name="description" content="Setting Cracker up for the first time: the introduction, your details and a lock, your first card, how it earns, spend by hand or from a statement PDF, a redemption, the numbers, reminders and a backup — eight steps, each shown.">
+<meta name="theme-color" content="#EFF1F6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#080A0F" media="(prefers-color-scheme: dark)">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sudo-githubuser.github.io/cc_tracker_legal/guide.html">
+<meta property="og:site_name" content="Cracker">
+<meta property="og:title" content="How to use — Cracker">
+<meta property="og:image" content="https://sudo-githubuser.github.io/cc_tracker_legal/icon.png">
+<meta property="og:description" content="Eight steps from first run to a year you can read, each with a picture of the step happening.">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://sudo-githubuser.github.io/cc_tracker_legal/guide.html">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="stylesheet" href="styles.css">
+<script>
+    // Applied before first paint so a dark-theme reader never gets a white
+    // flash on the way in.
+    (function () {
+        try {
+            var t = localStorage.getItem('cracker-theme');
+            if (t === 'light' || t === 'dark') {
+                document.documentElement.setAttribute('data-theme', t);
+            }
+        } catch (e) { }
+    })();
+</script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img class="nav-mark" src="icon.png" alt="" width="28" height="28" decoding="async">
+                Cracker
+            </a>
+            <div class="nav-tools">
+                <button class="icon-btn" data-theme-toggle type="button" aria-label="Switch theme">☾</button>
+                <button class="icon-btn nav-toggle" data-nav-toggle type="button" aria-expanded="false"
+                    aria-controls="nav-links" aria-label="Menu">☰</button>
+            </div>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">About</a>
+                <a href="guide.html" class="active" aria-current="page">How to use</a>
+                <a href="help.html">Help</a>
+                <a href="faq.html">FAQ</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main" class="prose-wrap doc guide">
+        <header class="page-head">
+            <span class="eyebrow">Setting it up</span>
+            <h1>How to use</h1>
+            <p class="subtitle">
+                Eight steps, in the order they need doing. The first five get a card and its spend into
+                the ledger; the last three are what make the numbers worth reading. Nothing here needs a
+                connection, an account or a sign-in.
+            </p>
+            <p class="last-updated">Cracker 1.0.0 · Last updated 19 September 2026</p>
+        </header>
+
+        <nav class="toc" aria-label="Contents">
+            <h2>Contents</h2>
+            <ol>
+                <li><a href="#s1">The introduction</a></li>
+                <li><a href="#s2">Your details, and a lock</a></li>
+                <li><a href="#s3">Your first card</a></li>
+                <li><a href="#s4">How the card earns</a></li>
+                <li><a href="#s5">Spend, by hand or from a PDF</a></li>
+                <li><a href="#s6">Log a redemption</a></li>
+                <li><a href="#s7">Read the numbers</a></li>
+                <li><a href="#s8">Keep it</a></li>
+            </ol>
+        </nav>
+
+        <!-- ================= 1 ================= -->
+        <section class="section-block step" id="s1">
+            <h2><span class="step-n">1</span>The introduction</h2>
+
+            <figure class="fig" style="--dur: 7s">
+                <svg viewBox="0 0 320 180" role="img" aria-labelledby="f1-t">
+                    <title id="f1-t">Four chapters on first run, with Skip on the first frame and the dots stepping through them.</title>
+                    <text class="t b" x="16" y="30" font-size="12">Cracker</text>
+                    <g class="skip" style="--s:.84;--e:.96">
+                        <rect x="262" y="16" width="42" height="20" rx="10" class="pill-rect"/>
+                        <text class="t m" x="283" y="30" font-size="9.5" text-anchor="middle">Skip</text>
+                    </g>
+                    <!-- Four tiles. Each is lit for one beat and handed on to the next. -->
+                    <g class="ch">
+                        <rect x="16" y="46" width="66" height="92" rx="10" class="tile-2"/>
+                        <rect x="16" y="46" width="66" height="92" rx="10" class="tile-hi beat" style="--s:0;--e:.037;--s2:.205;--e2:.242"/>
+                        <text class="eb" x="24" y="62">1 of 4</text>
+                        <text class="t" x="24" y="76" font-size="8.5" font-weight="600">What this is</text>
+                    </g>
+                    <g class="ch">
+                        <rect x="90" y="46" width="66" height="92" rx="10" class="tile-2"/>
+                        <rect x="90" y="46" width="66" height="92" rx="10" class="tile-hi beat" style="--s:.205;--e:.242;--s2:.41;--e2:.447"/>
+                        <text class="eb" x="98" y="62">2 of 4</text>
+                        <text class="t" x="98" y="76" font-size="8.5" font-weight="600">Offline</text>
+                    </g>
+                    <g class="ch">
+                        <rect x="164" y="46" width="66" height="92" rx="10" class="tile-2"/>
+                        <rect x="164" y="46" width="66" height="92" rx="10" class="tile-hi beat" style="--s:.41;--e:.447;--s2:.615;--e2:.652"/>
+                        <text class="eb" x="172" y="62">3 of 4</text>
+                        <text class="t" x="172" y="76" font-size="8.5" font-weight="600">On this<tspan x="172" dy="10">device</tspan></text>
+                    </g>
+                    <g class="ch">
+                        <rect x="238" y="46" width="66" height="92" rx="10" class="tile-2"/>
+                        <rect x="238" y="46" width="66" height="92" rx="10" class="tile-hi beat" style="--s:.615;--e:.652"/>
+                        <text class="eb" x="246" y="62">4 of 4</text>
+                        <text class="t" x="246" y="76" font-size="8.5" font-weight="600">Statements</text>
+                    </g>
+                    <!-- Dots -->
+                    <rect class="dot beat" x="139" y="156" height="6" rx="3" style="--s:0;--e:.037;--s2:.205;--e2:.242"/>
+                    <rect class="dot beat" x="161" y="156" height="6" rx="3" style="--s:.205;--e:.242;--s2:.41;--e2:.447"/>
+                    <rect class="dot beat" x="173" y="156" height="6" rx="3" style="--s:.41;--e:.447;--s2:.615;--e2:.652"/>
+                    <rect class="dot beat" x="185" y="156" height="6" rx="3" style="--s:.615;--e:.652"/>
+                </svg>
+                <figcaption>Four chapters on first run — what the app is, that it cannot phone home, where your
+                    data sits, and how a statement is opened. <strong>Skip</strong> is on the first frame.</figcaption>
+            </figure>
+
+            <p>The app opens on four short chapters. They ask for nothing and can be skipped from the first
+            one. They are worth a minute, because the two in the middle are the claims everything else rests
+            on: there is no internet permission in this app, and everything you enter is encrypted on the
+            phone.</p>
+            <p>To read them again later: <span class="mono">Settings → Read the introduction again</span>.</p>
+        </section>
+
+        <!-- ================= 2 ================= -->
+        <section class="section-block step" id="s2">
+            <h2><span class="step-n">2</span>Your details, and a lock</h2>
+
+            <figure class="fig" style="--dur: 7s">
+                <svg viewBox="0 0 320 180" role="img" aria-labelledby="f2-t">
+                    <title id="f2-t">Name, date of birth and card digits typed in and masked; the app lock switched on beside them.</title>
+                    <text class="eb" x="16" y="26">Your details</text>
+                    <!-- Field 1 -->
+                    <g class="field" style="--s:.04;--e:.24">
+                        <rect x="16" y="36" width="150" height="26" rx="7" class="well"/>
+                        <rect x="16" y="36" width="150" height="26" rx="7" class="ring"/>
+                        <text class="t ph" x="26" y="53" font-size="9">Name as the bank prints it</text>
+                        <text class="t m reveal" x="26" y="53" font-size="10">P•••••• S</text>
+                    </g>
+                    <!-- Field 2 -->
+                    <g class="field" style="--s:.28;--e:.46">
+                        <rect x="16" y="70" width="150" height="26" rx="7" class="well"/>
+                        <rect x="16" y="70" width="150" height="26" rx="7" class="ring"/>
+                        <text class="t ph" x="26" y="87" font-size="9">Date of birth</text>
+                        <text class="t m reveal" x="26" y="87" font-size="10">••/••/19••</text>
+                    </g>
+                    <!-- Field 3 -->
+                    <g class="field" style="--s:.50;--e:.60">
+                        <rect x="16" y="104" width="150" height="26" rx="7" class="well"/>
+                        <rect x="16" y="104" width="150" height="26" rx="7" class="ring"/>
+                        <text class="t ph" x="26" y="121" font-size="9">Card digits</text>
+                        <text class="t m reveal" x="26" y="121" font-size="10">•••• 4242</text>
+                    </g>
+
+                    <text class="eb" x="186" y="26">App lock</text>
+                    <g style="--s:.68;--e:.80">
+                        <rect x="186" y="36" width="118" height="40" rx="10" class="tile"/>
+                        <!-- Fingerprint: three arcs. -->
+                        <g class="tint" fill="none" stroke-width="1.6" stroke-linecap="round" transform="translate(200 46)">
+                            <path d="M4 16 C4 9 9 4 14 4 C19 4 24 9 24 16"/>
+                            <path d="M8 18 C8 12 11 8 14 8 C17 8 20 12 20 18"/>
+                            <path d="M12 20 C12 15 13 12 14 12 C15 12 16 15 16 20"/>
+                        </g>
+                        <!-- Switch -->
+                        <rect x="262" y="48" width="30" height="16" rx="8" class="track"/>
+                        <circle class="thumb" cx="270" cy="56" r="5"/>
+                    </g>
+                    <g class="rise" style="--s:.80;--e:.92">
+                        <rect x="186" y="88" width="104" height="20" rx="10" class="pill good"/>
+                        <g class="ic good" transform="translate(194 93)" fill="none" stroke-width="1.4" stroke-linecap="round">
+                            <path d="M1 5 C3 2 8 2 10 5 C8 8 3 8 1 5 Z"/>
+                            <path d="M2 9 L9 1"/>
+                        </g>
+                        <text class="t good" x="209" y="102" font-size="8.5" font-weight="600">Never shown back</text>
+                    </g>
+                </svg>
+                <figcaption>Name, date of birth and card digits typed in and masked; the app lock switched on
+                    beside them.</figcaption>
+            </figure>
+
+            <ol class="steps">
+                <li>
+                    <strong>Settings → Your details</strong>
+                    <p>Your name as the bank prints it, your date of birth, and the card digits if your bank's
+                    password uses them. These are the parts every statement password is built from. They are
+                    held in Keystore-backed secure storage, never shown back to you in full, and never leave
+                    the phone. Skip this step and a locked statement stays locked — you will be asked to type
+                    the password yourself.</p>
+                </li>
+                <li>
+                    <strong>Settings → App lock</strong>
+                    <p>Optional, off by default, and the one switch that matters if someone is holding your
+                    phone already unlocked. It puts your fingerprint in front of the whole app.</p>
+                </li>
+            </ol>
+        </section>
+
+        <!-- ================= 3 ================= -->
+        <section class="section-block step" id="s3">
+            <h2><span class="step-n">3</span>Your first card</h2>
+
+            <figure class="fig" style="--dur: 6s">
+                <svg viewBox="0 0 320 180" role="img" aria-labelledby="f3-t">
+                    <title id="f3-t">A card face arriving, then the two dates that drive everything: the day the statement closes and the days you have to pay.</title>
+                    <g class="land" style="--s:.04;--e:.34">
+                        <rect x="16" y="40" width="140" height="88" rx="12" class="face"/>
+                        <rect x="27" y="51" width="20" height="14" rx="3" fill="#fff" fill-opacity=".38"/>
+                        <text x="145" y="62" font-size="8.5" font-weight="700" text-anchor="end" class="t w">VISA</text>
+                        <text x="27" y="105" font-size="10" class="t w m">•••• •••• •••• 4242</text>
+                        <text x="27" y="118" font-size="8.5" fill="#fff" fill-opacity=".88" class="t">HDFC · Infinia</text>
+                    </g>
+                    <text class="eb" x="170" y="48">Statement cycle</text>
+                    <g class="rise" style="--s:.42;--e:.56">
+                        <rect x="170" y="56" width="134" height="24" rx="8" class="tile"/>
+                        <text class="t d" x="180" y="71" font-size="9">Closes on day</text>
+                        <text class="t m b" x="294" y="72" font-size="10.5" text-anchor="end">18</text>
+                    </g>
+                    <g class="rise" style="--s:.56;--e:.70">
+                        <rect x="170" y="86" width="134" height="24" rx="8" class="tile"/>
+                        <text class="t d" x="180" y="101" font-size="9">Days to pay</text>
+                        <text class="t m b" x="294" y="102" font-size="10.5" text-anchor="end">20</text>
+                    </g>
+                    <g class="rise" style="--s:.72;--e:.86">
+                        <rect x="170" y="118" width="92" height="20" rx="10" class="pill accent"/>
+                        <text class="t accent" x="216" y="131" font-size="8.5" font-weight="600" text-anchor="middle">Limit ₹5,00,000</text>
+                    </g>
+                </svg>
+                <figcaption>A card face arriving, then the two dates that drive everything: the day the
+                    statement closes and the days you have to pay.</figcaption>
+            </figure>
+
+            <ol class="steps">
+                <li>
+                    <strong>Cards → Add a card</strong>
+                    <p>Or <strong>Add a card</strong> on the empty Home. Start from a known card and its
+                    rate, fee, accelerators and exclusions fill themselves in; you add the last four digits
+                    and your own limit.</p>
+                </li>
+                <li>
+                    <strong>Take the cycle off a statement</strong>
+                    <p><strong>Closes on day</strong> and <strong>Days to pay</strong> drive the cycle view,
+                    the outstanding figure and the reminders. Read them off a real statement rather than from
+                    memory — once one is imported, the app uses the dates the bank printed instead.</p>
+                </li>
+            </ol>
+        </section>
+
+        <!-- ================= 4 ================= -->
+        <section class="section-block step" id="s4">
+            <h2><span class="step-n">4</span>How the card earns</h2>
+
+            <figure class="fig" style="--dur: 6s">
+                <svg viewBox="0 0 320 180" role="img" aria-labelledby="f4-t">
+                    <title id="f4-t">The base rate, two accelerated categories, a monthly cap and a milestone — the card as it actually behaves.</title>
+                    <text class="eb" x="16" y="26">Base earning</text>
+                    <g class="rise" style="--s:.62;--e:.74">
+                        <rect x="196" y="12" width="108" height="20" rx="10" class="pill warn"/>
+                        <g class="ic warn" transform="translate(204 16)" fill="none" stroke-width="1.4" stroke-linecap="round">
+                            <path d="M1 9 A5.5 5.5 0 0 1 11 9"/><path d="M6 9 L8.5 5"/>
+                        </g>
+                        <text class="t warn" x="219" y="26" font-size="8.5" font-weight="600">Cap 15,000 / month</text>
+                    </g>
+                    <!-- Bars -->
+                    <g style="--s:.06;--e:.26">
+                        <text class="t d" x="16" y="52" font-size="9.5">Everything</text>
+                        <rect x="74" y="45" width="186" height="8" rx="4" class="well"/>
+                        <rect x="74" y="45" width="37" height="8" rx="4" class="grow-x muted"/>
+                        <text class="t m fade" x="304" y="53" font-size="9.5" text-anchor="end">5 pts</text>
+                    </g>
+                    <g style="--s:.24;--e:.48">
+                        <text class="t d" x="16" y="74" font-size="9.5">Dining</text>
+                        <rect x="74" y="67" width="186" height="8" rx="4" class="well"/>
+                        <rect x="74" y="67" width="186" height="8" rx="4" class="grow-x accent"/>
+                        <text class="t m fade" x="304" y="75" font-size="9.5" text-anchor="end">25 pts</text>
+                    </g>
+                    <g style="--s:.42;--e:.62">
+                        <text class="t d" x="16" y="96" font-size="9.5">Travel</text>
+                        <rect x="74" y="89" width="186" height="8" rx="4" class="well"/>
+                        <rect x="74" y="89" width="112" height="8" rx="4" class="grow-x good"/>
+                        <text class="t m fade" x="304" y="97" font-size="9.5" text-anchor="end">15 pts</text>
+                    </g>
+                    <g class="rise" style="--s:.76;--e:.90">
+                        <rect x="16" y="118" width="288" height="28" rx="8" class="tile warn-edge"/>
+                        <g class="ic warn" transform="translate(26 126)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M1 12 L1 1 L9 1 L7 4 L9 7 L1 7"/>
+                        </g>
+                        <text class="t d" x="42" y="136" font-size="9">Milestone · ₹8,00,000 in the year</text>
+                        <text class="t m warn" x="294" y="136" font-size="9.5" text-anchor="end">+10,000</text>
+                    </g>
+                </svg>
+                <figcaption>The base rate, two accelerated categories, a monthly cap and a milestone — the card
+                    as it actually behaves.</figcaption>
+            </figure>
+
+            <p>On the same screen: the base earning, then <strong>Add an accelerator or milestone</strong>
+            for each category the card pays extra on, any monthly cap on that, and any spend threshold that
+            pays a bonus. If the card charges an annual fee, enter it with its waiver condition — the app will
+            forecast whether you are on track and what per day it now takes.</p>
+            <p>Under <strong>How you redeem</strong>, add the channels you actually use and the rate each one
+            is meant to pay. That is the number your own redemptions will later be measured against.</p>
+        </section>
+
+        <!-- ================= 5 ================= -->
+        <section class="section-block step" id="s5">
+            <h2><span class="step-n">5</span>Spend, by hand or from a PDF</h2>
+
+            <figure class="fig" style="--dur: 8s">
+                <svg viewBox="0 0 320 180" role="img" aria-labelledby="f5-t">
+                    <title id="f5-t">The + button logging one transaction; beside it a locked statement opening with your details and its rows pouring into the ledger.</title>
+                    <text class="eb" x="16" y="26">By hand</text>
+                    <g class="press" style="--s:.06;--e:.16">
+                        <rect x="16" y="36" width="34" height="34" rx="12" class="fab"/>
+                        <path d="M33 45 V61 M25 53 H41" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                    </g>
+                    <text class="t d" x="58" y="57" font-size="9">Log a transaction</text>
+                    <g class="rise" style="--s:.16;--e:.30">
+                        <rect x="16" y="82" width="124" height="22" rx="8" class="tile"/>
+                        <text class="t" x="26" y="96" font-size="9.5">Swiggy</text>
+                        <text class="t m" x="103" y="96" font-size="9" text-anchor="end">₹1,240</text>
+                        <text class="t m good" x="130" y="96" font-size="8.5" text-anchor="end">+62</text>
+                    </g>
+
+                    <text class="eb" x="156" y="26">From a statement</text>
+                    <g style="--s:.40;--e:.52">
+                        <rect x="156" y="36" width="32" height="32" rx="10" class="glyph"/>
+                        <!-- Document -->
+                        <g class="tint" fill="none" stroke-width="1.5" stroke-linejoin="round" transform="translate(165 43)">
+                            <path d="M1 1 H9 L13 5 V17 H1 Z"/><path d="M9 1 V5 H13"/><path d="M4 9 H10 M4 12 H10"/>
+                        </g>
+                        <!-- Lock badge: shut, then open. -->
+                        <circle cx="185" cy="65" r="7" class="badge"/>
+                        <g class="swap-a" fill="none" stroke="#fff" stroke-width="1.3" transform="translate(181.5 61)">
+                            <rect x="0.5" y="3.5" width="6" height="4.5" rx="1"/><path d="M1.8 3.5 V2.2 A1.7 1.7 0 0 1 5.2 2.2 V3.5"/>
+                        </g>
+                        <g class="swap-b" fill="none" stroke="#fff" stroke-width="1.3" transform="translate(181.5 61)">
+                            <rect x="0.5" y="3.5" width="6" height="4.5" rx="1"/><path d="M1.8 3.5 V2.2 A1.7 1.7 0 0 1 5.2 2.2"/>
+                        </g>
+                        <text class="t m" x="196" y="48" font-size="9">statement-aug.pdf</text>
+                        <text class="t d swap-a" x="196" y="60" font-size="8.5">Password-protected</text>
+                        <text class="t good swap-b" x="196" y="60" font-size="8.5">Opened with your details</text>
+                    </g>
+                    <g class="rise" style="--s:.54;--e:.64">
+                        <rect x="156" y="82" width="148" height="20" rx="8" class="tile"/>
+                        <text class="t" x="166" y="95" font-size="9.5">Amazon</text>
+                        <text class="t m" x="268" y="95" font-size="9" text-anchor="end">₹3,499</text>
+                        <text class="t m good" x="296" y="95" font-size="8.5" text-anchor="end">+175</text>
+                    </g>
+                    <g class="rise" style="--s:.60;--e:.70">
+                        <rect x="156" y="106" width="148" height="20" rx="8" class="tile"/>
+                        <text class="t" x="166" y="119" font-size="9.5">IndiGo</text>
+                        <text class="t m" x="264" y="119" font-size="9" text-anchor="end">₹8,120</text>
+                        <text class="t m good" x="296" y="119" font-size="8.5" text-anchor="end">+1,218</text>
+                    </g>
+                    <g class="rise" style="--s:.66;--e:.76">
+                        <rect x="156" y="130" width="148" height="20" rx="8" class="tile"/>
+                        <text class="t" x="166" y="143" font-size="9.5">BigBasket</text>
+                        <text class="t m" x="268" y="143" font-size="9" text-anchor="end">₹2,015</text>
+                        <text class="t m good" x="296" y="143" font-size="8.5" text-anchor="end">+101</text>
+                    </g>
+                    <g class="rise" style="--s:.80;--e:.90">
+                        <rect x="156" y="156" width="118" height="18" rx="9" class="pill good"/>
+                        <path d="M164 165 L167 168 L172 162" fill="none" class="ic good" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <text class="t good" x="177" y="168" font-size="8.5" font-weight="600">23 rows · totals match</text>
+                    </g>
+                </svg>
+                <figcaption>The + button logging one transaction; beside it a locked statement opening with
+                    your details and its rows pouring into the ledger.</figcaption>
+            </figure>
+
+            <ol class="steps">
+                <li>
+                    <strong>The + button → Log a transaction</strong>
+                    <p>Merchant, amount, category, card. The reward is worked out as you type, from the rules
+                    you just described.</p>
+                </li>
+                <li>
+                    <strong>Home → Import statement</strong>
+                    <p>Far faster for a whole month. The PDF is unlocked with your details, read into rows,
+                    and checked against the totals the bank printed. Every row arrives staged with a category
+                    and a confidence, and nothing touches the ledger until you commit. HDFC, Axis, ICICI,
+                    IndusInd, HSBC and Bank of Baroda are supported.</p>
+                </li>
+            </ol>
+        </section>
+
+        <!-- ================= 6 ================= -->
+        <section class="section-block step" id="s6">
+            <h2><span class="step-n">6</span>Log a redemption</h2>
+
+            <figure class="fig" style="--dur: 7s">
+                <svg viewBox="0 0 320 180" role="img" aria-labelledby="f6-t">
+                    <title id="f6-t">Points spent, rupees returned, fees taken off — and what that works out to per point.</title>
+                    <g class="rise" style="--s:.04;--e:.18">
+                        <rect x="16" y="30" width="128" height="48" rx="10" class="tile"/>
+                        <text class="eb" x="28" y="48">Points spent</text>
+                        <text class="t m b" x="28" y="67" font-size="14">12,000</text>
+                    </g>
+                    <g class="slide" style="--s:.18;--e:.30">
+                        <path d="M150 54 H170 M164 48 L170 54 L164 60" fill="none" class="ic muted" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <g class="rise" style="--s:.26;--e:.42">
+                        <rect x="176" y="30" width="128" height="48" rx="10" class="tile"/>
+                        <text class="eb" x="188" y="48">Flight</text>
+                        <text class="t m b" x="188" y="67" font-size="14">₹6,400</text>
+                    </g>
+                    <g class="rise" style="--s:.48;--e:.62">
+                        <text class="t m crit" x="304" y="100" font-size="9" text-anchor="end">− ₹1,100 booking fees and taxes</text>
+                    </g>
+                    <g class="rise" style="--s:.68;--e:.90">
+                        <rect x="16" y="116" width="288" height="36" rx="10" class="box warn"/>
+                        <text class="eb warn" x="28" y="138">This works out at</text>
+                        <text class="t m b warn" x="292" y="139" font-size="12" text-anchor="end">₹0.44 / pt</text>
+                    </g>
+                </svg>
+                <figcaption>Points spent, rupees returned, fees taken off — and what that works out to per
+                    point.</figcaption>
+            </figure>
+
+            <p><span class="mono">Rewards → Redemptions → Log a redemption</span>. The card, the route, the
+            points spent, and what came back in rupees minus booking fees and taxes. This is the step most
+            trackers skip and the one that makes the numbers honest: from here on your balance is valued at
+            what your redemptions actually returned, not at what the programme says a point is meant to be
+            worth.</p>
+        </section>
+
+        <!-- ================= 7 ================= -->
+        <section class="section-block step" id="s7">
+            <h2><span class="step-n">7</span>Read the numbers</h2>
+
+            <figure class="fig" style="--dur: 7s">
+                <svg viewBox="0 0 320 180" role="img" aria-labelledby="f7-t">
+                    <title id="f7-t">A financial year drawing itself month by month, and the figure most trackers cannot show: money left on the table.</title>
+                    <path d="M20 22 L16 26 L20 30" fill="none" class="ic muted" stroke-width="1.4" stroke-linecap="round"/>
+                    <text class="t m b" x="26" y="30" font-size="10">FY 2026–27</text>
+                    <path d="M90 22 L94 26 L90 30" fill="none" class="ic muted" stroke-width="1.4" stroke-linecap="round"/>
+                    <rect x="262" y="14" width="42" height="20" rx="10" class="fab"/>
+                    <text class="t w" x="283" y="27" font-size="8.5" font-weight="600" text-anchor="middle">Spend</text>
+                    <!-- Six months. Bars grow from the baseline at y=126. -->
+                    <g style="--s:.06;--e:.30"><rect class="grow-y bar" x="16" y="81" width="40" height="45" rx="3"/></g>
+                    <g style="--s:.13;--e:.37"><rect class="grow-y bar" x="64" y="69" width="40" height="57" rx="3"/></g>
+                    <g style="--s:.20;--e:.44"><rect class="grow-y bar" x="112" y="89" width="40" height="37" rx="3"/></g>
+                    <g style="--s:.27;--e:.51"><rect class="grow-y bar" x="160" y="52" width="40" height="74" rx="3"/></g>
+                    <g style="--s:.34;--e:.58"><rect class="grow-y bar" x="208" y="77" width="40" height="49" rx="3"/></g>
+                    <g style="--s:.41;--e:.65"><rect class="grow-y bar now" x="256" y="60" width="40" height="66" rx="3"/></g>
+                    <g class="eb-row">
+                        <text class="t d" x="36" y="138" font-size="8" text-anchor="middle">Apr</text>
+                        <text class="t d" x="84" y="138" font-size="8" text-anchor="middle">May</text>
+                        <text class="t d" x="132" y="138" font-size="8" text-anchor="middle">Jun</text>
+                        <text class="t d" x="180" y="138" font-size="8" text-anchor="middle">Jul</text>
+                        <text class="t d" x="228" y="138" font-size="8" text-anchor="middle">Aug</text>
+                        <text class="t d" x="276" y="138" font-size="8" text-anchor="middle">Sep</text>
+                    </g>
+                    <g class="rise" style="--s:.70;--e:.84">
+                        <rect x="16" y="148" width="288" height="22" rx="8" class="tile"/>
+                        <g class="ic muted" transform="translate(26 154)" fill="none" stroke-width="1.3">
+                            <rect x="0.5" y="0.5" width="10" height="9" rx="1.5"/><path d="M0.5 3.5 H10.5 M0.5 6.5 H10.5"/>
+                        </g>
+                        <text class="t d" x="42" y="162" font-size="9">Money left on the table</text>
+                        <text class="t m b crit" x="294" y="162" font-size="10" text-anchor="end">₹2,150</text>
+                    </g>
+                </svg>
+                <figcaption>A financial year drawing itself month by month, and the figure most trackers cannot
+                    show: money left on the table.</figcaption>
+            </figure>
+
+            <p><strong>Home</strong> is the year so far, what is due next, and the card worth using right
+            now. <strong>Analysis</strong> is six lenses on the same ledger — Spend × Rate × Redemption, Spend,
+            Reward rate, Redemption, Merchants and Cycles — with a financial-year stepper at the top and a
+            table behind every chart.</p>
+            <p><strong>Money left on the table</strong> is what you earned against what the best card you
+            already own would have paid on the same spend. It is not a comparison against cards you do not
+            have.</p>
+        </section>
+
+        <!-- ================= 8 ================= -->
+        <section class="section-block step" id="s8">
+            <h2><span class="step-n">8</span>Keep it</h2>
+
+            <figure class="fig" style="--dur: 7s">
+                <svg viewBox="0 0 320 180" role="img" aria-labelledby="f8-t">
+                    <title id="f8-t">A payment reminder switched on and ringing three days before the due date; an encrypted backup written and verified.</title>
+                    <text class="eb" x="16" y="26">Reminders</text>
+                    <g style="--s:.06;--e:.20">
+                        <rect x="16" y="36" width="136" height="40" rx="10" class="tile"/>
+                        <g class="bell">
+                            <path class="tint2" d="M9 1 C5 1 3 4 3 8 V13 L1 15 V16 H17 V15 L15 13 V8 C15 4 13 1 9 1 Z M7 18 A2 2 0 0 0 11 18" fill="none" stroke-width="1.5" stroke-linejoin="round" transform="translate(28 46)"/>
+                        </g>
+                        <rect x="112" y="48" width="30" height="16" rx="8" class="track"/>
+                        <circle class="thumb" cx="120" cy="56" r="5"/>
+                    </g>
+                    <g class="rise" style="--s:.20;--e:.32">
+                        <rect x="16" y="88" width="126" height="20" rx="10" class="pill accent"/>
+                        <g class="ic accent" transform="translate(24 92)" fill="none" stroke-width="1.3" stroke-linecap="round">
+                            <circle cx="6" cy="6" r="5"/><path d="M6 3 V6 L8 8"/>
+                        </g>
+                        <text class="t accent" x="40" y="102" font-size="8.5" font-weight="600">3 days before it is due</text>
+                    </g>
+
+                    <text class="eb" x="168" y="26">Backup</text>
+                    <g style="--s:.52;--e:.82">
+                        <rect x="168" y="36" width="136" height="52" rx="10" class="tile"/>
+                        <g class="done" style="--s:.84;--e:.94">
+                            <path class="swap-a ic accent" d="M7 1 L1 3 V8 C1 12 4 14 7 15 C10 14 13 12 13 8 V3 Z" fill="none" stroke-width="1.4" stroke-linejoin="round" transform="translate(178 44)"/>
+                            <g class="swap-b ic good" fill="none" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" transform="translate(178 44)">
+                                <path d="M7 1 L1 3 V8 C1 12 4 14 7 15 C10 14 13 12 13 8 V3 Z"/><path d="M4.5 8 L6.5 10 L10 6"/>
+                            </g>
+                        </g>
+                        <text class="t m" x="196" y="55" font-size="8.5">cracker-2026-09-19.db</text>
+                        <rect x="178" y="68" width="116" height="6" rx="3" class="well"/>
+                        <rect x="178" y="68" width="116" height="6" rx="3" class="grow-x progress"/>
+                    </g>
+                    <g class="rise" style="--s:.84;--e:.94">
+                        <rect x="168" y="100" width="136" height="20" rx="10" class="pill good"/>
+                        <g class="ic good" transform="translate(176 104)" fill="none" stroke-width="1.3" stroke-linecap="round">
+                            <circle cx="4" cy="6" r="3"/><path d="M7 6 H12 M10 6 V9"/>
+                        </g>
+                        <text class="t good" x="192" y="114" font-size="8.5" font-weight="600">Encrypted · passphrase only</text>
+                    </g>
+                </svg>
+                <figcaption>A payment reminder switched on and ringing three days before the due date; an
+                    encrypted backup written and verified.</figcaption>
+            </figure>
+
+            <ol class="steps">
+                <li>
+                    <strong>Settings → Reminders</strong>
+                    <p>Off by default. Choose how many days before the due date the first reminder lands.
+                    Android asks for notification permission at the moment you switch this on, never at
+                    launch, and the reminder is scheduled and fired entirely on the phone.</p>
+                </li>
+                <li>
+                    <strong>Settings → Backup and restore</strong>
+                    <p>One encrypted file, openable only with a passphrase you choose, and the route back from
+                    a lost phone. Make one once the ledger has something in it, and again after any month you
+                    would not want to re-enter.</p>
+                </li>
+            </ol>
+
+            <div class="callout callout-info">
+                <p>Everything above is also in <a href="help.html">Help</a>, in more depth — including what to
+                do when a statement will not open, and how the figures are computed.</p>
+            </div>
+        </section>
+
+        <div class="link-grid">
+            <a href="help.html" class="link-card">
+                <h3>Help</h3>
+                <p>Every feature, in the order you are likely to need it.</p>
+            </a>
+            <a href="faq.html" class="link-card">
+                <h3>FAQ</h3>
+                <p>The questions that come up most, answered plainly.</p>
+            </a>
+            <a href="privacy.html" class="link-card">
+                <h3>Privacy policy</h3>
+                <p>What is collected, what is stored, and what leaves the device.</p>
+            </a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="nav-brand">
+                    <img class="nav-mark" src="icon.png" alt="" width="28" height="28" decoding="async">
+                    Cracker
+                </a>
+                <p>Cracker is provided as-is, with no warranty and no assumption of responsibility by the
+                app or its creator.</p>
+            </div>
+            <div>
+                <h4>The app</h4>
+                <ul>
+                    <li><a href="index.html">About</a></li>
+                    <li><a href="guide.html">How to use</a></li>
+                    <li><a href="help.html">Help</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="mailto:praveen.dev.mys@gmail.com">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="last-updated">Cracker 1.0.0 · Last updated 19 September 2026</span>
+            <span>Works entirely offline. Nothing leaves the phone.</span>
+        </div>
+    </footer>
+
+    <button class="to-top" data-to-top type="button" aria-label="Back to top">↑</button>
+
+    <script src="site.js" defer></script>
+</body>
+
+</html>

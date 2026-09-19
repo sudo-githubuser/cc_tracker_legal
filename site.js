@@ -186,11 +186,47 @@
     announce(items.length, "");
   }
 
+  /* --- How to use: the figures --------------------------------------------
+     Each figure is driven by one registered custom property, --k, that a CSS
+     animation runs from 0 to 1 (see styles.css). Its initial value is 1, so
+     with no animation at all — no JS, an old browser, reduced motion — every
+     figure sits on its finished frame. This only decides *when* to animate:
+     a figure plays while it is on screen and stops, on its finished frame,
+     when it is not. Eight infinite loops all running off-screen is the kind
+     of thing that makes a phone warm. */
+  function initFigures() {
+    var figs = Array.prototype.slice.call(document.querySelectorAll(".fig"));
+    if (!figs.length) return;
+
+    // @property is what makes --k animatable. Without it the keyframes
+    // would flip --k straight from 0 to 1 at the midpoint — a strobe, not a
+    // picture — so the figures are left on their finished frame instead.
+    if (!("CSS" in window) || typeof CSS.registerProperty !== "function") {
+      document.documentElement.classList.add("no-fig-clock");
+      return;
+    }
+    if (!("IntersectionObserver" in window)) {
+      figs.forEach(function (f) { f.classList.add("is-on"); });
+      return;
+    }
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          entry.target.classList.toggle("is-on", entry.isIntersecting);
+        });
+      },
+      { rootMargin: "80px 0px", threshold: 0.2 }
+    );
+    figs.forEach(function (f) { io.observe(f); });
+  }
+
   function init() {
     initTheme();
     initNav();
     initToTop();
     initFaq();
+    initFigures();
   }
 
   if (document.readyState === "loading") {

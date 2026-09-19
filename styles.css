@@ -1487,3 +1487,282 @@ mark {
     border-radius: var(--r-xs);
     padding: 0 3px;
 }
+
+
+/* ==========================================================================
+   How to use — the figures
+
+   Eight small stages, one per step, drawn as inline SVG so they take the
+   page's own colours in both themes and cost no image file. Each is driven
+   by a single clock: a registered custom property, --k, that one keyframe
+   runs from 0 to 1 over the figure's --dur, on a loop. Every element on the
+   stage places itself on that clock with --s and --e (start and end, as
+   fractions of the loop) and gets back --a, its own 0→1 progress — the same
+   `seg(start, end)` the app's Flutter figures use, so the two stay in step.
+
+   --k's initial value is 1: with no animation running — reduced motion, an
+   old browser, no JS — every figure rests on its finished frame. Motion is
+   added on top of a readable picture, never required for one.
+   ========================================================================== */
+
+@property --k {
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 1;
+}
+
+@keyframes fig-clock {
+    from { --k: 0; }
+    to { --k: 1; }
+}
+
+.guide .step h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.guide .step-n {
+    flex: 0 0 auto;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--r-pill);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-ring);
+    color: var(--accent-strong);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0;
+}
+
+.fig {
+    margin: 18px 0 24px;
+}
+
+.fig svg {
+    display: block;
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    box-shadow: var(--lift);
+    --k: 1;
+}
+
+.fig.is-on svg {
+    animation: fig-clock var(--dur, 7s) linear infinite;
+}
+
+.no-fig-clock .fig svg {
+    animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fig svg {
+        animation: none !important;
+    }
+}
+
+.fig figcaption {
+    max-width: 560px;
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--muted);
+}
+
+.fig figcaption strong {
+    color: var(--ink-2);
+    font-weight: 600;
+}
+
+/* --- The clock, per element ---------------------------------------------
+   --a  : linear progress through [--s, --e]
+   --ea : the same, eased out (cubic)
+   --eb : eased with a small overshoot, for things that land
+   --p  : a pulse, 0 → 1 → 0 across the segment
+   --b  : progress through an optional second segment [--s2, --e2] — the
+          exit, for something lit for a beat and then handed on. */
+.fig [style*="--s:"] {
+    --a: clamp(0, calc((var(--k) - var(--s)) / (var(--e) - var(--s))), 1);
+    --ea: calc(1 - (1 - var(--a)) * (1 - var(--a)) * (1 - var(--a)));
+    --eb: calc(1 + 2.70158 * (var(--a) - 1) * (var(--a) - 1) * (var(--a) - 1) + 1.70158 * (var(--a) - 1) * (var(--a) - 1));
+    --p: calc(min(var(--a), 1 - var(--a)) * 2);
+    --b: clamp(0, calc((var(--k) - var(--s2, 2)) / (var(--e2, 3) - var(--s2, 2))), 1);
+}
+
+/* --- Movements ----------------------------------------------------------- */
+.fig .rise {
+    opacity: var(--ea);
+    transform: translateY(calc((1 - var(--ea)) * 10px));
+}
+
+.fig .fade {
+    opacity: var(--ea);
+}
+
+.fig .land {
+    opacity: var(--a);
+    transform: translateY(calc((1 - var(--eb)) * 46px));
+}
+
+.fig .slide {
+    opacity: var(--ea);
+    transform: translateX(calc((var(--ea) - 1) * 8px));
+}
+
+.fig .grow-x {
+    transform: scaleX(var(--ea));
+    transform-origin: left center;
+    transform-box: fill-box;
+}
+
+.fig .grow-y {
+    transform: scaleY(var(--ea));
+    transform-origin: center bottom;
+    transform-box: fill-box;
+}
+
+/* Typing: the masked value is uncovered left to right. */
+.fig .reveal {
+    clip-path: inset(0 calc((1 - var(--a)) * 100%) 0 0);
+}
+
+.fig .ph {
+    opacity: clamp(0, calc(1 - var(--a) * 20), 1);
+}
+
+.fig .ring {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 1.4;
+    opacity: clamp(0, min(var(--a) * 20, (1 - var(--a)) * 20), 1);
+}
+
+.fig .press,
+.fig .skip {
+    transform: scale(calc(1 - 0.12 * var(--p)));
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+.fig .skip .pill-rect {
+    fill: var(--surface);
+    stroke: var(--line);
+}
+
+.fig .skip text {
+    fill: color-mix(in srgb, var(--accent) calc(var(--p) * 100%), var(--muted));
+}
+
+/* Lit for a beat: on with --ea, off with --b. */
+.fig .beat {
+    --act: min(var(--ea), 1 - var(--b));
+}
+
+.fig .tile-hi {
+    fill: var(--surface);
+    stroke: var(--accent-ring);
+    opacity: var(--act);
+}
+
+.fig .dot {
+    width: calc(6px + 10px * var(--act));
+    fill: color-mix(in srgb, var(--accent) calc(var(--act) * 100%), var(--line));
+}
+
+/* A switch: the track tints, the thumb slides. */
+.fig .track {
+    fill: color-mix(in srgb, var(--accent) calc(var(--ea) * 100%), var(--surface-2));
+    stroke: color-mix(in srgb, var(--accent) calc(var(--ea) * 100%), var(--line));
+}
+
+.fig .thumb {
+    fill: color-mix(in srgb, #fff calc(var(--ea) * 100%), var(--muted));
+    transform: translateX(calc(var(--ea) * 14px));
+}
+
+.fig .tint,
+.fig .tint2 {
+    stroke: color-mix(in srgb, var(--accent) calc(var(--ea) * 100%), var(--muted));
+}
+
+/* The bell rings on its own beat while taking its colour from the switch. */
+.fig .bell {
+    --sw: clamp(0, calc((var(--k) - 0.30) / 0.16), 1);
+    --psw: calc(min(var(--sw), 1 - var(--sw)) * 2);
+    transform: rotate(calc(var(--psw) * 14deg));
+    transform-origin: 50% 12%;
+    transform-box: fill-box;
+}
+
+.fig .badge {
+    fill: color-mix(in srgb, var(--good) calc(var(--ea) * 100%), var(--warn));
+    stroke: var(--bg);
+    stroke-width: 1.5;
+}
+
+.fig .swap-a { opacity: calc(1 - var(--ea)); }
+.fig .swap-b { opacity: var(--ea); }
+
+.fig .progress {
+    --dn: clamp(0, calc((var(--k) - 0.84) / 0.10), 1);
+    fill: color-mix(in srgb, var(--good) calc(var(--dn) * 100%), var(--accent));
+}
+
+/* --- Surfaces and type ---------------------------------------------------- */
+.fig .t {
+    font-family: var(--font-ui);
+    fill: var(--ink);
+    letter-spacing: -0.1px;
+}
+
+.fig .t.m { font-family: var(--font-mono); letter-spacing: 0; }
+.fig .t.b { font-weight: 700; }
+.fig .t.d { fill: var(--ink-2); }
+.fig .t.w { fill: #fff; }
+.fig .t.good { fill: var(--good); }
+.fig .t.warn { fill: var(--warn); }
+.fig .t.crit { fill: var(--crit); }
+.fig .t.accent { fill: var(--accent); }
+
+.fig .eb {
+    font-family: var(--font-ui);
+    font-size: 7.5px;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    fill: var(--muted);
+}
+
+.fig .eb.warn { fill: var(--warn); }
+
+.fig .tile { fill: var(--surface); stroke: var(--line); }
+.fig .tile-2 { fill: var(--surface-2); stroke: var(--line); }
+.fig .tile.warn-edge { stroke: var(--warn-line); }
+.fig .well { fill: var(--surface-2); stroke: var(--line); }
+.fig .face { fill: var(--accent); }
+.fig .fab { fill: var(--accent); }
+.fig .glyph { fill: var(--accent-soft); stroke: var(--accent-ring); }
+
+.fig .pill.good { fill: var(--good-soft); stroke: var(--good-line); }
+.fig .pill.warn { fill: var(--warn-soft); stroke: var(--warn-line); }
+.fig .pill.accent { fill: var(--accent-soft); stroke: var(--accent-ring); }
+.fig .box.warn { fill: var(--warn-soft); stroke: var(--warn-line); }
+
+.fig .ic.good { stroke: var(--good); }
+.fig .ic.warn { stroke: var(--warn); }
+.fig .ic.accent { stroke: var(--accent); }
+.fig .ic.muted { stroke: var(--muted); }
+
+.fig .grow-x.muted { fill: var(--muted); }
+.fig .grow-x.accent { fill: var(--accent); }
+.fig .grow-x.good { fill: var(--good); }
+
+.fig .bar { fill: color-mix(in srgb, var(--accent) 55%, transparent); }
+.fig .bar.now { fill: var(--accent); }
